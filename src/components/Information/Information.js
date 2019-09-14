@@ -16,34 +16,34 @@ const Information = ({ current, city }) => {
           <div className="col-1">
             <div className="section">
               <div className="section-title">Conditions</div>
-              <div>{current.weather_state_name}</div>
+              <div className="section-info">{current.weather_state_name}</div>
             </div>
 
             <div className="section">
               <div className="section-title">High / Low</div>
-              <div>{Math.round(current.max_temp)}&deg; / {Math.round(current.min_temp)}&deg;</div>
+              <div className="section-info">{Math.round(current.max_temp)}&deg; / {Math.round(current.min_temp)}&deg;</div>
             </div>
 
             <div className="section">
               <div className="section-title">Wind</div>
-              <div>{current.wind_direction_compass} {Math.round(current.wind_speed)} MPH</div>
+              <div className="section-info">{current.wind_direction_compass} {Math.round(current.wind_speed)} mph</div>
             </div>
           </div>
 
           <div className="col-2">
             <div className="section">
               <div className="section-title">Air Pressure</div>
-              <div>{Math.round(current.air_pressure)}</div>
+              <div className="section-info">{Math.round(current.air_pressure)} mbar</div>
             </div>
 
             <div className="section">
               <div className="section-title">Humidity</div>
-              <div>{current.humidity}</div>
+              <div className="section-info">{current.humidity}%</div>
             </div>
 
             <div className="section">
               <div className="section-title">Visibility</div>
-              <div>{Math.round(current.visibility)}</div>
+              <div className="section-info">{Math.round(current.visibility)} mi</div>
             </div>
           </div>
 
