@@ -12,7 +12,7 @@ const SearchBar = ({ fetchData }) => {
   };
 
   return (
-    <div>
+    <div className="search-container">
       <form onSubmit={handleSubmit}>
         <input type="text" name="search" placeholder="Search" onChange={e => setSearchQuery(e.target.value)}/>
         <button>Search</button>
