@@ -5,7 +5,7 @@ import './ForecastItem.css';
 const ForecastItem = ({date}) => {
 
   return (
-    <div className="">
+    <div className="box">
       <img src={`https://www.metaweather.com/static/img/weather/${date.weather_state_abbr}.svg`} alt="logo"/>
       <div>
         {Math.round(date.max_temp)}&deg; / {Math.round(date.min_temp)}&deg;
