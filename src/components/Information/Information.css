@@ -3,3 +3,11 @@
   flex-direction: column;
   align-items: center;
 }
+
+.current-degree {
+  font-size: 70px;
+}
+
+img {
+  width: 100px;
+}
