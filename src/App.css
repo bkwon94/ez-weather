@@ -16,6 +16,12 @@
   text-align: center;
 }
 
+.app-intro {
+  font-size: 1.5em;
+  color: #FFF;
+  margin-top: 20px;
+}
+
 .app-header {
   font-size: 5em;
   font-weight: 700;
@@ -30,8 +36,3 @@
   color: #FDB813;
 }
 
-.app-intro {
-  font-size: 1.5em;
-  color: #FFF;
-  margin-top: 20px;
-}

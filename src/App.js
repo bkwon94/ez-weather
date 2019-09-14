@@ -24,7 +24,6 @@ const App = () => {
 
   // Main data fetching function
   const fetchData = (query, id, date) => {
-
     if (!id && !date) {
       url = `https://www.metaweather.com/api/location/search/?query=${query}`;
     } else if (id && !date) {
@@ -45,6 +44,7 @@ const App = () => {
     })
       .then(res => res.json())
       .then(result => {
+        // use result for different purposes depending on type of search
         if (query) {
           let code = result[0].woeid;
           setCityCode(code);
@@ -76,13 +76,14 @@ const App = () => {
   return (
     <div className="App">
       <SearchBar fetchData={fetchData} resetForecast={setFiveDayForecast}/>
-      {/* <Information current={currentWeather} city={cityName}/> */}
+      {/* Displays intro page before users searches and current weather if city has been input */}
       {currentWeather ? <Information current={currentWeather} city={cityName}/> :
-      <div className="app-info-container">
-        <div className="app-header">EZ WEATHER <i className="fas fa-sun"></i> </div>
-        <div className="app-intro">Use the search bar above to find your local weather!</div>
-      </div>}
-      {/* <Forecast forecastData={fiveDayForecast}/> */}
+        <div className="app-info-container">
+          <div className="app-header">EZ WEATHER <i className="fas fa-sun"></i> </div>
+          <div className="app-intro">Use the search bar above to find your local weather!</div>
+        </div>
+      }
+      {/* Renders and displays five day forecast once ALL data has been received */}
       {fiveDayForecast.length === 5 ? <Forecast forecastData={fiveDayForecast}/> : <div></div>}
     </div>
   );
