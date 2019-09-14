@@ -4,7 +4,7 @@ import ForecastItem from '../ForecastItem/ForecastItem';
 import './Forecast.css';
 
 const Forecast = ({ forecastData }) => {
-
+  console.log(forecastData);
   return (
     <div className="forecast-container">
       {

@@ -54,8 +54,8 @@ const App = () => {
           setCityName(name);
           setCurrentWeather(weatherData);
         } else if (date) {
-          console.log(result);
           let forecastData = result[0];
+          console.log(forecastData);
           setFiveDayForecast(prevForecast => [...prevForecast, forecastData]);
         }
       });
