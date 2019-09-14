@@ -15,8 +15,12 @@ const SearchBar = ({ fetchData, resetForecast }) => {
   return (
     <div className="search-container">
       <form onSubmit={handleSubmit}>
-        <input type="text" name="search" placeholder="Search by city" onChange={e => setSearchQuery(e.target.value)}/>
-        <button>Search</button>
+        <div className="search-flex">
+          <input type="text" className="search-bar" name="search" placeholder="Search by city"       onChange={e => setSearchQuery(e.target.value)}/>
+          <button className="search-button">
+            <i className="fas fa-search-location"></i>
+          </button>
+        </div>
       </form>
     </div>
   );
