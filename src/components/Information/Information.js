@@ -6,29 +6,47 @@ const Information = ({ current, city }) => {
     return (
       <div className="info-container">
         <h1>{city}</h1>
+
         <div className="current-degree">
           {Math.round(current.the_temp)}&deg;
         </div>
         <img src={`https://www.metaweather.com/static/img/weather/${current.weather_state_abbr}.svg`} alt="logo"></img>
 
-        <div>
-          {current.weather_state_name}
-        </div>
-        <div>
-          {Math.round(current.max_temp)}&deg; / {Math.round(current.min_temp)}&deg;
-        </div>
+        <div className="details">
+          <div className="col-1">
+            <div className="section">
+              <div className="section-title">Conditions</div>
+              <div>{current.weather_state_name}</div>
+            </div>
 
-        <div>
-          Wind: {current.wind_direction_compass} {Math.round(current.wind_speed)} MPH
-        </div>
-        <div>
-          Air Pressure: {Math.round(current.air_pressure)}
-        </div>
-        <div>
-          Humidity: {current.humidity}
-        </div>
-        <div>
-          Visibility: {Math.round(current.visibility)}
+            <div className="section">
+              <div className="section-title">High / Low</div>
+              <div>{Math.round(current.max_temp)}&deg; / {Math.round(current.min_temp)}&deg;</div>
+            </div>
+
+            <div className="section">
+              <div className="section-title">Wind</div>
+              <div>{current.wind_direction_compass} {Math.round(current.wind_speed)} MPH</div>
+            </div>
+          </div>
+
+          <div className="col-2">
+            <div className="section">
+              <div className="section-title">Air Pressure</div>
+              <div>{Math.round(current.air_pressure)}</div>
+            </div>
+
+            <div className="section">
+              <div className="section-title">Humidity</div>
+              <div>{current.humidity}</div>
+            </div>
+
+            <div className="section">
+              <div className="section-title">Visibility</div>
+              <div>{Math.round(current.visibility)}</div>
+            </div>
+          </div>
+
         </div>
       </div>
     );

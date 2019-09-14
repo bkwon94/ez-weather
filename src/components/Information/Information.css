@@ -1,12 +1,17 @@
 .info-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   grid-row: 2 / 3;
   grid-column: 2 / 7;
   border-radius: 30px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /* background: #1974D2; */
+}
+
+.info-container img {
+  width: 70px;
 }
 
 .info-container h1 {
@@ -19,6 +24,21 @@
   font-weight: bold;
 }
 
-img {
-  width: 100px;
+.details {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-around; */
+}
+
+.col-1 {
+  /* display: grid;
+  grid-column: 3 / 4; */
+}
+
+.section div {
+  margin-bottom: 4px;
+}
+
+.section-title {
+  font-size: 0.85em;
 }
