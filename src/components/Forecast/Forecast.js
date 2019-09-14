@@ -1,12 +1,17 @@
 import React from 'react';
 // import { useState } from 'react';
+import ForecastItem from '../ForecastItem/ForecastItem';
 import './Forecast.css';
 
 const Forecast = ({ forecastData }) => {
 
   return (
     <div className="forecast-container">
-      Forecast
+      {
+        forecastData.map((date, index) => {
+          return <ForecastItem date={date} key={index}/>
+        })
+      }
     </div>
   );
 }

@@ -2,13 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import './SearchBar.css';
 
-const SearchBar = ({ fetchData }) => {
+const SearchBar = ({ fetchData, resetForecast }) => {
 
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
     fetchData(searchQuery, null, null);
+    resetForecast([]);
   };
 
   return (
