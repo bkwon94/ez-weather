@@ -6,8 +6,14 @@
   grid-column: 2 / 7;
 }
 
+.info-container h1 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
 .current-degree {
-  font-size: 70px;
+  font-size: 100px;
+  font-weight: bold;
 }
 
 img {
