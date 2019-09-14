@@ -45,7 +45,6 @@ const App = () => {
           let weatherData = result.consolidated_weather[0]
           setCurrentWeather(weatherData);
         }
-
       });
   }
 
