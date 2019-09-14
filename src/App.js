@@ -22,6 +22,7 @@ const App = () => {
     getForecast(cityCode);
   }, [cityCode]);
 
+  // Main data fetching function
   const fetchData = (query, id, date) => {
 
     if (!id && !date) {
