@@ -12,7 +12,7 @@
 .app-info-container {
   grid-row: 2 / 3;
   grid-column: 2 / 7;
-  margin: auto;
+  margin: auto 0 auto 0;
   text-align: center;
 }
 
@@ -27,12 +27,30 @@
   font-weight: 700;
   color: #FFF;
   text-shadow: none;
-  background: #4A708B;
+  /* background: #4A708B; */
   border-radius: 5px;
   padding: 5px;
 }
 
 .app-header i {
   color: #FDB813;
+}
+
+@media screen and (max-width: 1100px) {
+  .app-header {
+    font-size: 3.5em;
+  }
+  .app-intro {
+    font-size: 1.4em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .app-header {
+    font-size: 2.5em;
+  }
+  .app-intro {
+    font-size: 1em;
+  }
 }
 
