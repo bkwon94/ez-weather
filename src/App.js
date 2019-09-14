@@ -19,12 +19,12 @@ const App = () => {
     getCurrentWeather(cityCode);
   }, [cityCode]);
 
-  const fetchData = (query, code, future) => {
+  const fetchData = (query, id, future) => {
 
-    if (!code && !future) {
+    if (!id && !future) {
       url = `https://www.metaweather.com/api/location/search/?query=${query}`;
-    } else if (code) {
-      url =`https://www.metaweather.com/api/location/${code}/`;
+    } else if (id) {
+      url =`https://www.metaweather.com/api/location/${id}/`;
     } else {
       // url = `https://www.metaweather.com/api/location/search/?query=${query}`;
     }
@@ -39,9 +39,11 @@ const App = () => {
       .then(result => {
         console.log(result);
         if (query) {
-          setCityCode(result[0].woeid);
-        } else if (code) {
-          setCurrentWeather(result.consolidated_weather[0]);
+          let code = result[0].woeid;
+          setCityCode(code);
+        } else if (id) {
+          let weatherData = result.consolidated_weather[0]
+          setCurrentWeather(weatherData);
         }
 
       });
