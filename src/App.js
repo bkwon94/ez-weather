@@ -1,18 +1,33 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Information from './components/Information/Information';
 import SearchBar from './components/SearchBar/SearchBar';
 
+
 const App = () => {
 
   const [cityCode, setCityCode] = useState('');
-
-  const findLocation = (query) => {
+  const [currentWeather, setCurrentWeather] = useState('');
+  const [fiveDayForecast, setFiveDayForecast] = useState('');
     // Proxy url to bypass CORS policy issue
     // Allows access to response data from the metaweather api
-    const proxyURL = 'https://cors-anywhere.herokuapp.com/';
-    const url = `https://www.metaweather.com/api/location/search/?query=${query}`;
+  const proxyURL = 'https://cors-anywhere.herokuapp.com/';
+  let url;
+
+  useEffect(() => {
+    getCurrentWeather(cityCode);
+  }, [cityCode]);
+
+  const fetchData = (query, code, future) => {
+
+    if (!code && !future) {
+      url = `https://www.metaweather.com/api/location/search/?query=${query}`;
+    } else if (code) {
+      url =`https://www.metaweather.com/api/location/${code}/`;
+    } else {
+      // url = `https://www.metaweather.com/api/location/search/?query=${query}`;
+    }
     fetch(proxyURL + url, {
       method: 'GET',
       headers: {
@@ -23,16 +38,23 @@ const App = () => {
       .then(res => res.json())
       .then(result => {
         console.log(result);
-        let data = result[0];
-        setCityCode(data.woeid);
+        if (query) {
+          setCityCode(result[0].woeid);
+        } else if (code) {
+          setCurrentWeather(result.consolidated_weather[0]);
+        }
+
       });
   }
 
+  const getCurrentWeather = id => {
+    fetchData(null, id, null);
+  }
 
   return (
     <div className="App">
-      <SearchBar findLocation={findLocation}/>
-      <Information />
+      <SearchBar fetchData={fetchData}/>
+      <Information current={currentWeather}/>
     </div>
   );
 }

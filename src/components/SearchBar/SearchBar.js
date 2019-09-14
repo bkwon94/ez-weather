@@ -2,13 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import './SearchBar.css';
 
-const SearchBar = ({ findLocation }) => {
+const SearchBar = ({ fetchData }) => {
 
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
-    findLocation(searchQuery);
+    fetchData(searchQuery, null, null);
   };
 
   return (
