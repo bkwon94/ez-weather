@@ -5,6 +5,7 @@ const Information = ({ current, city }) => {
   if (current) {
     return (
       <div className="info-container">
+        <div className="today">TODAY</div>
         <h1>{city}</h1>
 
         <div className="current-degree">

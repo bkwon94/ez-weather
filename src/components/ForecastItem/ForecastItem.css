@@ -19,12 +19,13 @@
 
 .item-temp {
   text-align: center;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 1.25em;
   margin: 8px 0 8px 0;
 }
 
 .item-info {
   font-size: 0.7em;
+  font-weight: 600;
 }
 

@@ -15,7 +15,7 @@ const SearchBar = ({ fetchData, resetForecast }) => {
   return (
     <div className="search-container">
       <form onSubmit={handleSubmit}>
-        <input type="text" name="search" placeholder="Search" onChange={e => setSearchQuery(e.target.value)}/>
+        <input type="text" name="search" placeholder="Search by city" onChange={e => setSearchQuery(e.target.value)}/>
         <button>Search</button>
       </form>
     </div>
