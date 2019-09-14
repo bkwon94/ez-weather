@@ -77,7 +77,8 @@ const App = () => {
     <div className="App">
       <SearchBar fetchData={fetchData} resetForecast={setFiveDayForecast}/>
       <Information current={currentWeather} city={cityName}/>
-      <Forecast forecastData={fiveDayForecast}/>
+      {/* <Forecast forecastData={fiveDayForecast}/> */}
+      {fiveDayForecast.length === 5 ? <Forecast forecastData={fiveDayForecast}/> : <div></div>}
     </div>
   );
 }
