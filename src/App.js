@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Information from './components/Information/Information';
 import SearchBar from './components/SearchBar/SearchBar';
+import Forecast from './components/Forecast/Forecast';
 
 
 const App = () => {
@@ -60,6 +61,7 @@ const App = () => {
     <div className="App">
       <SearchBar fetchData={fetchData}/>
       <Information current={currentWeather} city={cityName}/>
+      <Forecast />
     </div>
   );
 }
