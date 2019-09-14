@@ -10,28 +10,28 @@ const Information = ({ current }) => {
           {current.weather_state_name}
         </div>
         <div>
-          {current.the_temp}
+          {Math.round(current.the_temp)}
         </div>
         <div>
-          {current.min_temp}
+          {Math.round(current.min_temp)}
         </div>
         <div>
-          {current.max_temp}
+          {Math.round(current.max_temp)}
         </div>
         <div>
-          {current.wind_speed}
+          {Math.round(current.wind_speed)}
         </div>
         <div>
-          {current.wind_direction}
+          {Math.round(current.wind_direction)}
         </div>
         <div>
-          {current.air_pressure}
+          {Math.round(current.air_pressure)}
         </div>
         <div>
           {current.humidity}
         </div>
         <div>
-          {current.visibility}
+          {Math.round(current.visibility)}
         </div>
       </div>
     );

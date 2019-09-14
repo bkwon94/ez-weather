@@ -42,6 +42,7 @@ const App = () => {
           let code = result[0].woeid;
           setCityCode(code);
         } else if (id) {
+          console.log(result);
           let weatherData = result.consolidated_weather[0]
           setCurrentWeather(weatherData);
         }
