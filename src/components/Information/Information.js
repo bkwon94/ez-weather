@@ -4,14 +4,15 @@ import './Information.css';
 const Information = ({ current, city }) => {
   if (current) {
     return (
-      <div>
+      <div className="info-container">
         <h1>{city}</h1>
-        <div><img src={`https://www.metaweather.com/static/img/weather/${current.weather_state_abbr}.svg`} alt="logo"></img></div>
+        <div>
+          {Math.round(current.the_temp)}&#8451;
+        </div>
+
         <div>
           {current.weather_state_name}
-        </div>
-        <div>
-          {Math.round(current.the_temp)}
+          <img src={`https://www.metaweather.com/static/img/weather/${current.weather_state_abbr}.svg`} alt="logo"></img>
         </div>
         <div>
           High: {Math.round(current.max_temp)}
@@ -20,10 +21,10 @@ const Information = ({ current, city }) => {
           Low: {Math.round(current.min_temp)}
         </div>
         <div>
-          Wind Speed: {Math.round(current.wind_speed)}
+          Wind Speed: {Math.round(current.wind_speed)} mph
         </div>
         <div>
-          Wind Direction: {Math.round(current.wind_direction)}
+          Wind Direction: {current.wind_direction_compass}
         </div>
         <div>
           Air Pressure: {Math.round(current.air_pressure)}
@@ -34,6 +35,8 @@ const Information = ({ current, city }) => {
         <div>
           Visibility: {Math.round(current.visibility)}
         </div>
+
+        <div>See 5 Day Forecast</div>
       </div>
     );
   } else {
