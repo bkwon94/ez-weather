@@ -10,7 +10,7 @@ const App = () => {
 
   const [cityCode, setCityCode] = useState('');
   const [cityName, setCityName] = useState('');
-  const [currentWeather, setCurrentWeather] = useState('');
+  const [currentWeather, setCurrentWeather] = useState(null);
   const [fiveDayForecast, setFiveDayForecast] = useState([]);
     // Proxy url to bypass CORS policy issue
     // Allows access to response data from the metaweather api
@@ -76,7 +76,12 @@ const App = () => {
   return (
     <div className="App">
       <SearchBar fetchData={fetchData} resetForecast={setFiveDayForecast}/>
-      <Information current={currentWeather} city={cityName}/>
+      {/* <Information current={currentWeather} city={cityName}/> */}
+      {currentWeather ? <Information current={currentWeather} city={cityName}/> :
+      <div className="app-info-container">
+        <div className="app-header">EZ WEATHER <i className="fas fa-sun"></i> </div>
+        <div className="app-intro">Use the search bar above to find your local weather!</div>
+      </div>}
       {/* <Forecast forecastData={fiveDayForecast}/> */}
       {fiveDayForecast.length === 5 ? <Forecast forecastData={fiveDayForecast}/> : <div></div>}
     </div>
