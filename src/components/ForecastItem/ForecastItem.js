@@ -28,6 +28,7 @@ const ForecastItem = ({date}) => {
     <div className="box">
       <h4>{formatDate(date)}</h4>
       <img src={`https://www.metaweather.com/static/img/weather/${date.weather_state_abbr}.svg`} alt="logo"/>
+
       <div className="item-temp">
         {Math.round(date.max_temp)}&deg; / {Math.round(date.min_temp)}&deg;
       </div>
@@ -45,6 +46,7 @@ const ForecastItem = ({date}) => {
           Visibility: {Math.round(date.visibility)}
         </div>
       </div>
+      
     </div>
   );
 }

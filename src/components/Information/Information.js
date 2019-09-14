@@ -15,7 +15,7 @@ const Information = ({ current, city }) => {
           {current.weather_state_name}
         </div>
         <div>
-          {Math.round(current.max_temp)} / {Math.round(current.min_temp)}
+          {Math.round(current.max_temp)}&deg; / {Math.round(current.min_temp)}&deg;
         </div>
 
         <div>
@@ -30,8 +30,6 @@ const Information = ({ current, city }) => {
         <div>
           Visibility: {Math.round(current.visibility)}
         </div>
-
-        <div>See 5 Day Forecast</div>
       </div>
     );
   } else {
