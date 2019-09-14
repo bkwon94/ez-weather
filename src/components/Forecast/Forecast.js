@@ -2,7 +2,7 @@ import React from 'react';
 // import { useState } from 'react';
 import './Forecast.css';
 
-const Forecast = () => {
+const Forecast = ({ forecastData }) => {
 
   return (
     <div className="forecast-container">

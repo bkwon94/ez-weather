@@ -11,7 +11,7 @@ const App = () => {
   const [cityCode, setCityCode] = useState('');
   const [cityName, setCityName] = useState('');
   const [currentWeather, setCurrentWeather] = useState('');
-  const [fiveDayForecast, setFiveDayForecast] = useState('');
+  const [fiveDayForecast, setFiveDayForecast] = useState([]);
     // Proxy url to bypass CORS policy issue
     // Allows access to response data from the metaweather api
   const proxyURL = 'https://cors-anywhere.herokuapp.com/';
@@ -19,16 +19,21 @@ const App = () => {
 
   useEffect(() => {
     getCurrentWeather(cityCode);
+    getForecast(cityCode);
   }, [cityCode]);
 
-  const fetchData = (query, id, future) => {
+  const fetchData = (query, id, date) => {
 
-    if (!id && !future) {
+    if (!id && !date) {
       url = `https://www.metaweather.com/api/location/search/?query=${query}`;
-    } else if (id) {
+    } else if (id && !date) {
       url =`https://www.metaweather.com/api/location/${id}/`;
     } else {
-      // url = `https://www.metaweather.com/api/location/search/?query=${query}`;
+      let year = date.getUTCFullYear();
+      let month = date.getUTCMonth() + 1;
+      let day = date.getUTCDate();
+      console.log(year, month, day);
+      url = `https://www.metaweather.com/api/location/${id}/${year}/${month}/${day}`
     }
     fetch(proxyURL + url, {
       method: 'GET',
@@ -39,16 +44,18 @@ const App = () => {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
         if (query) {
           let code = result[0].woeid;
           setCityCode(code);
-        } else if (id) {
-          console.log(result);
+        } else if (id && !date) {
           let weatherData = result.consolidated_weather[0]
           let name = result.title;
           setCityName(name);
           setCurrentWeather(weatherData);
+        } else if (date) {
+          console.log(result);
+          let forecastData = result[0];
+          setFiveDayForecast(prevForecast => [...prevForecast, forecastData]);
         }
       });
   }
@@ -57,11 +64,19 @@ const App = () => {
     fetchData(null, id, null);
   }
 
+  const getForecast = id => {
+    let date = new Date();
+    for (let i = 0; i < 5; i++) {
+      date.setDate(date.getDate() + 1);
+      fetchData(null, id, date);
+    }
+  }
+
   return (
     <div className="App">
       <SearchBar fetchData={fetchData}/>
       <Information current={currentWeather} city={cityName}/>
-      <Forecast />
+      <Forecast forecastData={fiveDayForecast}/>
     </div>
   );
 }
