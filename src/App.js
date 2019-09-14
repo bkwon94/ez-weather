@@ -8,6 +8,7 @@ import SearchBar from './components/SearchBar/SearchBar';
 const App = () => {
 
   const [cityCode, setCityCode] = useState('');
+  const [cityName, setCityName] = useState('');
   const [currentWeather, setCurrentWeather] = useState('');
   const [fiveDayForecast, setFiveDayForecast] = useState('');
     // Proxy url to bypass CORS policy issue
@@ -44,6 +45,8 @@ const App = () => {
         } else if (id) {
           console.log(result);
           let weatherData = result.consolidated_weather[0]
+          let name = result.title;
+          setCityName(name);
           setCurrentWeather(weatherData);
         }
       });
@@ -56,7 +59,7 @@ const App = () => {
   return (
     <div className="App">
       <SearchBar fetchData={fetchData}/>
-      <Information current={currentWeather}/>
+      <Information current={currentWeather} city={cityName}/>
     </div>
   );
 }
