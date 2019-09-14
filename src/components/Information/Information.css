@@ -4,6 +4,9 @@
   align-items: center;
   grid-row: 2 / 3;
   grid-column: 2 / 7;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* background: #1974D2; */
 }
 
 .info-container h1 {

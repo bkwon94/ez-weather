@@ -19,6 +19,7 @@ const ForecastItem = ({date}) => {
       '12': 'December'
     }
     let unformattedDate = currentDate.applicable_date;
+    // '2019-09-15' is the unformatted date so we can hardcode the month and day easily
     let month = unformattedDate[5] + unformattedDate[6];
     let day = unformattedDate[8] + unformattedDate[9];
     let formatMonth = months[month];
@@ -46,7 +47,7 @@ const ForecastItem = ({date}) => {
           Visibility: {Math.round(date.visibility)}
         </div>
       </div>
-      
+
     </div>
   );
 }
