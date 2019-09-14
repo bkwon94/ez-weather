@@ -30,9 +30,9 @@ const App = () => {
     } else if (id && !date) {
       url =`https://www.metaweather.com/api/location/${id}/`;
     } else {
-      let year = date.getUTCFullYear();
-      let month = date.getUTCMonth() + 1;
-      let day = date.getUTCDate();
+      var year = date.getUTCFullYear();
+      var month = date.getUTCMonth() + 1;
+      var day = date.getUTCDate();
       console.log(year, month, day);
       url = `https://www.metaweather.com/api/location/${id}/${year}/${month}/${day}`
     }
@@ -55,7 +55,7 @@ const App = () => {
           setCurrentWeather(weatherData);
         } else if (date) {
           let forecastData = result[0];
-          console.log(forecastData);
+          forecastData.date = day;
           setFiveDayForecast(prevForecast => [...prevForecast, forecastData]);
         }
       });

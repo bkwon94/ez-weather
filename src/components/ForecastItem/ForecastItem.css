@@ -10,6 +10,13 @@
   text-align: center;
 }
 
+.box img {
+  width: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .item-temp {
   text-align: center;
   font-weight: bold;
@@ -20,3 +27,4 @@
 .item-info {
   font-size: 0.7em;
 }
+

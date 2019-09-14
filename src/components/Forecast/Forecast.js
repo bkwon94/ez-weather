@@ -4,7 +4,13 @@ import ForecastItem from '../ForecastItem/ForecastItem';
 import './Forecast.css';
 
 const Forecast = ({ forecastData }) => {
-  console.log(forecastData);
+  // Sort list in correct order of dates
+  // MVP solution to the asynchronous nature of api calls -> before this the five day forecast would never be in order
+  const sortByDate = (dataList) => {
+    return dataList.sort((a, b) => a.date - b.date);
+  };
+  sortByDate(forecastData);
+  
   return (
     <div className="forecast-container">
       {
