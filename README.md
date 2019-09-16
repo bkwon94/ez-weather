@@ -1,4 +1,10 @@
+EZ Weather is a simple weather app that uses the MetaWeather API to find your local weather forecast
+Please run npm start as stated in the instructions below to run the app!
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### Demo
+![ez-weather-demo](ez-weather-demo.gif)
 
 ## Available Scripts
 

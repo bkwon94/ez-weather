@@ -1,0 +1,8 @@
+.forecast-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  grid-row: 3 / 4;
+  grid-column: 2 / 7;
+}
